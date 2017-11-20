@@ -1,6 +1,10 @@
-const OnProductTypeChange = (event) => {
+export const OnProductTypeChange = (event) => {
   console.log('product type changed')
   console.log(event.target.value)
   return true;
 }
-export default OnProductTypeChange
+
+export const OnProductEdit = (productId) => {
+  console.log('product id ' +  productId + 'clicked')
+  return true;
+}

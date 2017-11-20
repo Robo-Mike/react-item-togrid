@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { Form , FormGroup, Button ,Col,FormControl, ControlLabel} from 'react-bootstrap';
 
 const ProductEdit = ({product, onProductTypeChange, productTypes}) => (
-
   <Form horizontal>
     <FormGroup >
       <Col sm={6} componentClass={ControlLabel} >Description</Col>
@@ -29,9 +28,18 @@ const ProductEdit = ({product, onProductTypeChange, productTypes}) => (
    </FormGroup>
   </Form>
 )
-
-{/* ProductEdit.propTypes = {
-
-} */}
+// prop types provides error logging where props of incorrect type are supplied
+ProductEdit.propTypes = {
+  product:PropTypes.shape({
+    cost: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    type:  PropTypes.number.isRequired
+  }).isRequired,
+  onProductTypeChange: PropTypes.func.isRequired,
+  ProductTypes:PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired
+  }))
+}
 
 export default ProductEdit

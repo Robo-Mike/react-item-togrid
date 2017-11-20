@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ProductEdit from './components/ProductEdit';
-import ProductTypes from './constants/ProductTypes';
-import OnProductTypeChange from './actions/index.js';
-const DummyProduct = {description:'Omelette', cost:8.50, type: 2}
+import ProductContainer from './containers/ProductContainer'
+import ProductTypes from './constants/ProductTypes'
+import Products from './api/products.json'
+import {OnProductTypeChange} from './actions/index.js'
+import {OnProductEdit} from './actions/index.js'
+const InitialProduct = {description:'Omelette', cost:8.50, type: 2}
+
 class App extends Component {
   render() {
     return (
@@ -16,9 +19,7 @@ class App extends Component {
         <p>
           A work in progress..
         </p>
-        <ProductEdit productTypes={ProductTypes} product = {DummyProduct}
-        onProductTypeChange = {(e) => {OnProductTypeChange(e)
-        }} />
+        <ProductContainer  products={Products} productTypes={ProductTypes} initialProduct={InitialProduct} onProductTypeChange={OnProductTypeChange} onProductEdit={OnProductEdit} />
       </div>
     );
   }
