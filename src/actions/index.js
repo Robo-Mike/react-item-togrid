@@ -6,5 +6,5 @@ export const OnProductTypeChange = (event) => {
 
 export const OnProductEdit = (productId) => {
   console.log('product id ' +  productId + 'clicked')
-  return true;
+ return true;
 }

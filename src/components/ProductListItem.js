@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import { Row, Col, Button} from 'react-bootstrap';
 const ProductListItem = ( {product, onProductEditClicked}) => (
   <Row>
-    <Col>{product.description}</Col>
-    <Col>{product.cost}</Col>
-    <Col>{product.typename}</Col>
-    <Col><Button bsStyle= 'primary' onClick={onProductEditClicked(product.id)} >Edit</Button></Col>
+    <Col xs={3} >{product.description}</Col>
+    <Col xs={3} >{product.cost}</Col>
+    <Col xs={3} >{product.typename}</Col>
+    <Col xs={3} ><Button bsStyle= 'primary' onClick={()=>{onProductEditClicked(product.id)}} >Edit</Button></Col>
   </Row>
 
 )

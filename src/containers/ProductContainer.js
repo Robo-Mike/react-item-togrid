@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import ProductEdit from '../components/ProductEdit'
 import ProductList from '../components/ProductList'
 import ProductListItem from '../components/ProductListItem'
-import {OnProductTypeChange} from '../actions/index.js'
-import {OnProductEdit} from '../actions/index.js'
+
 
 
 const ProductContainer = ( {products,productTypes, initialProduct,onProductTypeChange, onProductEdit}) => (
@@ -13,7 +12,7 @@ const ProductContainer = ( {products,productTypes, initialProduct,onProductTypeC
   <ProductList>
     {products.map(
       (product)=>
-      <ProductListItem product={product} onProductEditClicked={onProductEdit} />
+      <ProductListItem product={product} onProductEditClicked={onProductEdit} key={product.id} />
     )
   }
   </ProductList>
