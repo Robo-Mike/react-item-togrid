@@ -6,9 +6,9 @@ import ProductListItem from '../components/ProductListItem'
 
 
 
-const ProductContainer = ( {products,productTypes, initialProduct,onProductTypeChange, onProductEdit}) => (
+const ProductContainer = ( {products,productTypes, initialProduct,onProductTypeChange, onProductEdit, onProductSave}) => (
   <div>
-  <ProductEdit productTypes={productTypes} product = {initialProduct}  onProductTypeChange = {onProductTypeChange} />
+  <ProductEdit productTypes={productTypes} product = {initialProduct}  onProductTypeChange = {onProductTypeChange} onProductSave= {onProductSave} />
   <ProductList>
     {products.map(
       (product)=>

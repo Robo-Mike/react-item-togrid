@@ -6,7 +6,8 @@ import ProductTypes from '../constants/ProductTypes'
 import Products from '../api/products.json'
 import {OnProductTypeChange} from '../actions/index.js'
 import {OnProductEdit} from '../actions/index.js'
-const InitialProduct = {description:'Omelette', cost:8.50, type: 2}
+import {OnProductSave} from '../actions/index.js'
+const InitialProduct = {description:'Omelette', cost:8.50, type: 2, id:99}
 
 class App extends Component {
   render() {
@@ -19,7 +20,7 @@ class App extends Component {
         <p>
           A work in progress..
         </p>
-        <ProductContainer  products={Products} productTypes={ProductTypes} initialProduct={InitialProduct} onProductTypeChange={OnProductTypeChange} onProductEdit={OnProductEdit} />
+        <ProductContainer  products={Products} productTypes={ProductTypes} initialProduct={InitialProduct} onProductTypeChange={OnProductTypeChange} onProductEdit={OnProductEdit} onProductSave={OnProductSave} />
       </div>
     );
   }

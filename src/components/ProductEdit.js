@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 //Form controls are just extensions of input type (though select is a bit different)
 import { Form , FormGroup, Button ,Col,FormControl, ControlLabel} from 'react-bootstrap';
 
-const ProductEdit = ({product, onProductTypeChange, productTypes}) => (
+const ProductEdit = ({product, onProductTypeChange, productTypes, onProductSave}) => (
   <Form horizontal>
     <FormGroup >
       <Col sm={6} componentClass={ControlLabel} >Description</Col>
@@ -26,6 +26,7 @@ const ProductEdit = ({product, onProductTypeChange, productTypes}) => (
        </FormControl>
     </Col>
    </FormGroup>
+   <Button bsStyle= 'primary' onClick={()=>{onProductSave(product.id)}} >Save</Button>
   </Form>
 )
 // prop types provides error logging where props of incorrect type are supplied
@@ -33,9 +34,11 @@ ProductEdit.propTypes = {
   product:PropTypes.shape({
     cost: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
-    type:  PropTypes.number.isRequired
+    type:  PropTypes.number.isRequired,
+    id:  PropTypes.number.isRequired
   }).isRequired,
   onProductTypeChange: PropTypes.func.isRequired,
+  onProductSave: PropTypes.func.isRequired,
   ProductTypes:PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired

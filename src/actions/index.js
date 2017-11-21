@@ -8,3 +8,8 @@ export const OnProductEdit = (productId) => {
   console.log('product id ' +  productId + 'clicked')
  return true;
 }
+
+export const OnProductSave= (productId) => {
+  console.log('product id ' +  productId + ' Saved')
+ return true;
+}
