@@ -16,7 +16,7 @@ const ProductEdit = ({product, onProductTypeChange, productTypes, onProductSave}
    <FormGroup>
      <Col sm={6} componentClass={ControlLabel} >Item Type</Col>
      <Col sm={3}>
-       <FormControl componentClass='select'   defaultValue={product.type} onChange={(e) => onProductTypeChange(e)} >
+       <FormControl componentClass='select'   defaultValue={product.productTypeId} onChange={(e) => onProductTypeChange(e)} >
         {
            // each array element must include a key element for performance
            productTypes.map( (type) => (
@@ -34,7 +34,7 @@ ProductEdit.propTypes = {
   product:PropTypes.shape({
     cost: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
-    type:  PropTypes.number.isRequired,
+    productTypeId:  PropTypes.number.isRequired,
     id:  PropTypes.number.isRequired
   }).isRequired,
   onProductTypeChange: PropTypes.func.isRequired,

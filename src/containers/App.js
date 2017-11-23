@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
 import ProductContainer from './ProductContainer'
-import ProductTypes from '../constants/ProductTypes'
-import Products from '../api/products.json'
-import {OnProductTypeChange} from '../actions/index.js'
-import {OnProductEdit} from '../actions/index.js'
-import {OnProductSave} from '../actions/index.js'
-const InitialProduct = {description:'Omelette', cost:8.50, type: 2, id:99}
+
+
+
 
 class App extends Component {
   render() {

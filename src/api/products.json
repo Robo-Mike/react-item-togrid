@@ -1,7 +1,7 @@
 [
-  {"id":1,  "description": "Omelette" , "cost": 8.55, "typeid" : 2 },
-  {"id":2,  "description": "Minnestrone" , "cost": 4.55, "typeid" : 1 },
-  {"id":3,  "description": "Apple Pie" , "cost": 9.55, "typeid" : 3 },
-  {"id":4,  "description": "Spaghetti Bolentil" , "cost": 8.50, "typeid" : 2 },
-  {"id":5,  "description": "Lemon Meringue" , "cost": 7.99, "typeid" : 3 }
+  {"id":1,  "description": "Omelette" , "cost": 8.55, "productTypeId" : 2 },
+  {"id":2,  "description": "Minnestrone" , "cost": 4.55, "productTypeId" : 1 },
+  {"id":3,  "description": "Apple Pie" , "cost": 9.55, "productTypeId" : 3 },
+  {"id":4,  "description": "Spaghetti Bolentil" , "cost": 8.50, "productTypeId" : 2 },
+  {"id":5,  "description": "Lemon Meringue" , "cost": 7.99, "productTypeId" : 3 }
 ]
