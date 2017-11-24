@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
 import updateEditItem from './productedit'
-import productsList  from './productslist'
+import productsList, {getProductById ,getSelectedId, getProductListFromState}  from './productslist'
 
 export default combineReducers({
   updateEditItem,
   productsList
 })
 
-export const getEditProductById = (state,id) => (getProductById(state.productsList,id))
+export const getEditProduct = (state) => (getProductById(state.productsList,getSelectedId(state.productsList)))
+export const getVisibleProducts = (state) => (getProductListFromState(state.productsList))

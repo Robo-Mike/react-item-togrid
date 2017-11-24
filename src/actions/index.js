@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionTypes'
-import  getProducts from '../api/service.js'
+import  {getProducts} from '../api/service.js'
 
 export const getAllProducts = () =>
   dispatch => {
@@ -11,17 +11,17 @@ export const getAllProducts = () =>
 
 const receiveProducts = products =>({
     type:types.RECEIVE_PRODUCTS,
-    products
+    products: products
   })
 
 const changeProductType = productTypeId =>({
   type:types.EDIT_PRODUCT_TYPE_CHANGED,
-  productTypeId
+  productTypeId: productTypeId
 })
 
 const editProduct = productId =>({
   type:types.EDIT_PRODUCT,
-  productId
+  productId: productId
 })
 
 

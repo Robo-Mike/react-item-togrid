@@ -8,11 +8,11 @@ import {onProductTypeChange} from '../actions/index.js'
 import {onProductEdit} from '../actions/index.js'
 import {onProductSave} from '../actions/index.js'
 import ProductTypes from '../constants/ProductTypes'
-import getEditProductById from '../reducers/index'
+import {getEditProduct, getVisibleProducts} from '../reducers/index'
 
-const ProductContainer = ( {products,productTypes, initialProduct,onProductTypeChange, onProductEdit, onProductSave}) => (
+const ProductContainer = ( {products,productTypes, selectedProduct,onProductTypeChangeX, onProductEditX, onProductSaveX} ) => (
   <div>
-  <ProductEdit productTypes={productTypes} product = {selectedProject}  onProductTypeChange = {onProductTypeChangeX} onProductSave= {onProductSaveX} />
+  <ProductEdit productTypes={productTypes} product = {selectedProduct}  onProductTypeChange = {onProductTypeChangeX} onProductSave= {onProductSaveX} />
   <ProductList>
     {products.map(
       (product)=>
@@ -24,8 +24,8 @@ const ProductContainer = ( {products,productTypes, initialProduct,onProductTypeC
 )
 
 const mapStateToProps = state => ({
-  products: state.productsList.products,
-  selectedProduct:getEditProductById(),
+  products: getVisibleProducts(state),
+  selectedProduct:getEditProduct(state),
   productTypes:ProductTypes
 })
 

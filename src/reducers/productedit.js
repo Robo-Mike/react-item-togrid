@@ -12,13 +12,13 @@ const initialState = {
   id:0
 }
 
-const updateEditItem = (state={initialState}, action)=>{
+const updateEditItem = (state={}, action)=>{
   switch(action.type)
   {
     case EDIT_PRODUCT_TYPE_CHANGED:
         return {...state, productTypeId: action.productTypeId }
     case EDIT_PRODUCT:
-        return {...state, state.products[action.productId]}
+        return {...state, products: state.products[action.productId]}
     default:
         return state
   }

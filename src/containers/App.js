@@ -17,7 +17,7 @@ class App extends Component {
         <p>
           A work in progress..
         </p>
-        <ProductContainer  products={Products} productTypes={ProductTypes} initialProduct={InitialProduct} onProductTypeChange={OnProductTypeChange} onProductEdit={OnProductEdit} onProductSave={OnProductSave} />
+        <ProductContainer  />
       </div>
     );
   }
