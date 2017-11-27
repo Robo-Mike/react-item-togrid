@@ -7,5 +7,5 @@ export default combineReducers({
   productsList
 })
 
-export const getEditProduct = (state) => (getProductById(state.productsList,getSelectedId(state.productsList)))
+export const getEditProduct = (state) => ( state.updateEditItem)
 export const getVisibleProducts = (state) => (getProductListFromState(state.productsList))

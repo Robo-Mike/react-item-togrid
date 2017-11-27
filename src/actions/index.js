@@ -29,9 +29,10 @@ const changeProductCost = productCost =>({
   productCost: productCost
 })
 
-const editProduct = productId =>({
+const editProduct = (productId, product) =>({
   type:types.EDIT_PRODUCT,
-  selectedId: productId
+  selectedId: productId,
+  product:product
 })
 
 //ES6 arrow syntax as it is multiline - { after arrow, must explicitly return a value, or could probably use round bracket
@@ -44,7 +45,7 @@ export const onProductTypeChange = (event) => {
 
 export const onProductEdit = (productId) => {
   console.log('product id ' +  productId + 'clicked')
-  return dispatch => (dispatch(editProduct(productId)))
+  return (dispatch, getState) => (dispatch(editProduct(productId, getState().productsList.products[productId] )))
 }
 
 export const onProductSave= (productId) => {

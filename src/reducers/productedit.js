@@ -12,15 +12,17 @@ export const initialState = {
   id:0
 }
 
-const updateEditItem = (state=initialState, action)=>{
+const updateEditItem = (state=initialState, action )=>{
   switch(action.type)
   {
     case EDIT_PRODUCT_TYPE_CHANGED:
         return {...state, productTypeId: action.productTypeId }
     case EDIT_PRODUCT_DESCRIPTION_CHANGED:
-            return {...state, productDescription: action.productDescription }
+        return {...state, description: action.productDescription }
     case EDIT_PRODUCT_COST_CHANGED:
-                return {...state, productCost: action.productCost }
+        return {...state, cost: action.productCost }
+    case EDIT_PRODUCT:
+        return action.product
     default:
         return state
   }
