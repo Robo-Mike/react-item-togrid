@@ -3,20 +3,20 @@ import PropTypes from 'prop-types'
 //Form controls are just extensions of input type (though select is a bit different)
 import { Form , FormGroup, Button ,Col,FormControl, ControlLabel} from 'react-bootstrap';
 
-const ProductEdit = ({product, onProductTypeChange, productTypes, onProductSave}) => (
+const ProductEdit = ({product, onProductTypeChange, onProductCostChange, onProductDescriptionChange, productTypes, onProductSave}) => (
   <Form horizontal>
     <FormGroup >
       <Col sm={6} componentClass={ControlLabel} >Description</Col>
-      <Col sm={3}><FormControl type='text'  value={product.description} /></Col>
+      <Col sm={3}><FormControl type='text'  value={product.description} onChange={(e) => onProductDescriptionChange(e)} /></Col>
     </FormGroup>
     <FormGroup>
       <Col sm={6} componentClass={ControlLabel} >Cost</Col>
-      <Col sm={3}><FormControl type='text'   value={product.cost} /></Col>
+      <Col sm={3}><FormControl type='text'   value={product.cost} onChange={(e) => onProductCostChange(e)} /></Col>
     </FormGroup>
    <FormGroup>
      <Col sm={6} componentClass={ControlLabel} >Item Type</Col>
      <Col sm={3}>
-       <FormControl componentClass='select'   defaultValue={product.productTypeId} onChange={(e) => onProductTypeChange(e)} >
+       <FormControl componentClass='select'   value={product.productTypeId} onChange={(e) => onProductTypeChange(e)} >
         {
            // each array element must include a key element for performance
            productTypes.map( (type) => (

@@ -19,21 +19,32 @@ const changeProductType = productTypeId =>({
   productTypeId: productTypeId
 })
 
-const editProduct = productId =>({
-  type:types.EDIT_PRODUCT,
-  productId: productId
+const changeProductDescription = productDescription =>({
+  type:types.EDIT_PRODUCT_DESCRIPTION_CHANGED,
+  productDescription: productDescription
 })
 
+const changeProductCost = productCost =>({
+  type:types.EDIT_PRODUCT_COST_CHANGED,
+  productCost: productCost
+})
 
+const editProduct = productId =>({
+  type:types.EDIT_PRODUCT,
+  selectedId: productId
+})
+
+//ES6 arrow syntax as it is multiline - { after arrow, must explicitly return a value, or could probably use round bracket
 export const onProductTypeChange = (event) => {
   console.log('product type changed to')
   console.log(event.target.value)
-  dispatch => (changeProductType(event.target.value))
+  // using thunk so we return a function that in turn returns an action creator
+  return dispatch => ( dispatch(changeProductType(event.target.value)))
 }
 
 export const onProductEdit = (productId) => {
   console.log('product id ' +  productId + 'clicked')
-  dispatch => (editProduct(productId))
+  return dispatch => (dispatch(editProduct(productId)))
 }
 
 export const onProductSave= (productId) => {
@@ -41,14 +52,14 @@ export const onProductSave= (productId) => {
  return true;
 }
 
-export const onProductDescriptionChanged = (event)=> {
+export const onProductDescriptionChange = (event)=> {
   console.log('product description changed to')
   console.log(event.target.value)
-  return true;
+  return dispatch => ( dispatch(changeProductDescription(event.target.value)))
 }
 
-export const onProductCostChanged = (event)=> {
+export const onProductCostChange = (event)=> {
   console.log('product cost changed to')
   console.log(event.target.value)
-  return true;
+  return dispatch => ( dispatch(changeProductCost(event.target.value)))
 }

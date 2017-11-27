@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import {RECEIVE_PRODUCTS, EDIT_PRODUCT } from '../constants/ActionTypes'
-
+import {initialState as initialProduct} from './productedit'
 /*reducers signature always (state, action) action object will contain incoming params these manage the application state when
 enlisted into redux store*/
 
@@ -34,12 +34,13 @@ export default combineReducers({
 })
 
 
-/*these is business logic  to assist with mapping of props from rationalised state are normalised through the state tree*/
+/*these is business logic  to assist with mapping of props from rationalised state are normalised through the state tree
+IMPORTANT has to return a valid objecteven when not found otherwise props are treated as uncontrolled*/
 export const getProductById = (state, id) => {
     if (Object.keys(state.products).length > 0){
         return state.products[id]
     }
-    return {}
+    return {initialProduct}
 }
 
 export const getSelectedId = (state) => {

@@ -5,20 +5,22 @@ import {EDIT_PRODUCT_TYPE_CHANGED ,
 } from '../constants/ActionTypes'
 
 /*reducers signature always (state, action) action object will contain incoming params*/
-const initialState = {
+export const initialState = {
   cost:0,
   description : 'Select a Product to edit',
   productTypeId: 1,
   id:0
 }
 
-const updateEditItem = (state={}, action)=>{
+const updateEditItem = (state=initialState, action)=>{
   switch(action.type)
   {
     case EDIT_PRODUCT_TYPE_CHANGED:
         return {...state, productTypeId: action.productTypeId }
-    case EDIT_PRODUCT:
-        return {...state, products: state.products[action.productId]}
+    case EDIT_PRODUCT_DESCRIPTION_CHANGED:
+            return {...state, productDescription: action.productDescription }
+    case EDIT_PRODUCT_COST_CHANGED:
+                return {...state, productCost: action.productCost }
     default:
         return state
   }
