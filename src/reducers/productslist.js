@@ -10,7 +10,7 @@ const products = (state={}, action)=>{
     case RECEIVE_PRODUCTS:
         return action.products.reduce( (accum, current) =>
           {
-            // build up an array of products with product id as index
+            // build up an array of products with product id as index, so can be retrieved by id
             accum[current.id] = current
             return accum
           }, {})
@@ -34,7 +34,14 @@ export default combineReducers({
 })
 
 
-/*these is business logic  to assist with mapping of props from rationalised state are normalised through the state tree
+export const getProductListFromState = (state) => {
+
+    return Object.keys(state.products).map((key, index) => {return state.products[key] } )
+
+}
+
+
+/*ABANDONED AFTER Rejiigging state was here for business logic  to assist with mapping of props from rationalised state are normalised through the state tree
 IMPORTANT has to return a valid objecteven when not found otherwise props are treated as uncontrolled*/
 export const getProductById = (state, id) => {
     if (Object.keys(state.products).length > 0){
@@ -45,10 +52,4 @@ export const getProductById = (state, id) => {
 
 export const getSelectedId = (state) => {
   return state.selectedId
-}
-
-export const getProductListFromState = (state) => {
-
-    return Object.keys(state.products).map((key, index) => {return state.products[key] } )
-
 }
