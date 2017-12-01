@@ -14,7 +14,7 @@ describe('productedit', () => { it('shows product description', ()=> {
 
   const component = setup(testProps);
   //didnt have any luck with enzyme selects being more selective!!
-  expect(component.html()).toContain(testProps.product.description)
+  expect(component.findWhere(x=> x.type()==='input' && x.props().value===testProps.product.description ).length).toEqual(1)
 })
 
 })

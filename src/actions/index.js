@@ -2,12 +2,21 @@ import * as types from '../constants/ActionTypes'
 import  {getProducts} from '../api/service.js'
 
 export const getAllProducts = () =>
-  dispatch => {
+{
+  console.log('in getAllProducts')
+  //using thunk return a function which is then hooked up to dispatch
+  return dispatch => {
+    console.log('getAllProducts > dispatch')
     getProducts().then(
-      products => (dispatch(receiveProducts(products))
-    )
+      (products) => {
+        console.log('getAllProducts > dispatch > dispatch')
+        dispatch(receiveProducts(products))
+      }
+
     )
   }
+}
+
 
 const receiveProducts = products =>({
     type:types.RECEIVE_PRODUCTS,
