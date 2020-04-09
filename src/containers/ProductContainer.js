@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+//import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ProductEdit from '../components/ProductEdit'
 import ProductList from '../components/ProductList'
@@ -26,13 +26,16 @@ const ProductContainer = ( {products,productTypes, selectedProduct,onProductType
 </div>
 )
 
+//Redux means props dont need to be passed down from parent component (e.g. from ProductList to ProductListItem)
+//filter redux store state using functions included in reducers to provide standard props for react components, then pass to connect
 const mapStateToProps = state => ({
   products: getVisibleProducts(state),
   selectedProduct:getEditProduct(state),
   productTypes:ProductTypes
 })
 
-
+//store connect is called twice in a row  1st call takes state mapping and action creator functions, 2nd call is object to apply to
+//Note reducers used by the store have already been been assigned during createstore
 export default connect(
   mapStateToProps,
   {onProductTypeChangeX:onProductTypeChange, onProductEditX:onProductEdit, onProductSaveX:onProductSave, onProductCostChangeX:onProductCostChange, onProductDescriptionChangeX:onProductDescriptionChange}

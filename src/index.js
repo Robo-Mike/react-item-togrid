@@ -15,6 +15,7 @@ import {getAllProducts} from  './actions/index'
 const middleware = [ thunk ];
 //push other middle ware into array here
 
+// reducers are applied HERE
 const store = createStore(
   reducer,
   applyMiddleware(...middleware)

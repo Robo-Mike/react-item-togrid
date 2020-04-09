@@ -59,7 +59,7 @@ export const onProductEdit = (productId) => {
 
 export const onProductSave= (productId) => {
   console.log('product id ' +  productId + ' Saved')
- return true;
+  return true
 }
 
 export const onProductDescriptionChange = (event)=> {

@@ -16,7 +16,7 @@ const ProductEdit = ({product, onProductTypeChange, onProductCostChange, onProdu
    <FormGroup>
      <Col sm={6} componentClass={ControlLabel} >Item Type</Col>
      <Col sm={3}>
-       <FormControl componentClass='select'   value={product.productTypeId} onChange={(e) => onProductTypeChange(e)} >
+       <FormControl componentClass='select'   value={product.productTypeId} onChange={(e) => {onProductTypeChange(e)}} >
         {
            // each array element must include a key element for performance
            productTypes.map( (type) => (
@@ -26,7 +26,7 @@ const ProductEdit = ({product, onProductTypeChange, onProductCostChange, onProdu
        </FormControl>
     </Col>
    </FormGroup>
-   <Button bsStyle= 'primary' onClick={()=>{onProductSave(product.id)}} >Save</Button>
+   <Button bsStyle= 'primary' onClick={()=>onProductSave(product.id)} >Save</Button>
   </Form>
 )
 // prop types provides error logging where props of incorrect type are supplied
